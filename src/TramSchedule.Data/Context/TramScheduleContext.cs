@@ -25,9 +25,9 @@ namespace TramSchedule.Data.Context
                 .Property(t => t.Name)
                 .HasMaxLength(100);
             modelBuilder.Entity<Tram>().HasData(
-                new Tram() { Name = "tramicus", Description = "modern tram", Number = 110 },
-                new Tram() { Name = "kiosk", Description = "modern tram", Number = 110 },
-                new Tram() { Name = "delfin", Description = "modern tram", Number = 110 }
+                new Tram() { Name = "tramicus", Description = "modern tram", Number = 110, TramId = 1 },
+                new Tram() { Name = "kiosk", Description = "modern tram", Number = 110, TramId = 2 },
+                new Tram() { Name = "delfin", Description = "modern tram", Number = 110, TramId = 3 }
                 );
         }
     }

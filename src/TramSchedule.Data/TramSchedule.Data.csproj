@@ -20,8 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DAL\Interfaces\" />
-    <Folder Include="DAL\Repositories\" />
     <Folder Include="Migrations\" />
   </ItemGroup>
 

@@ -1,3 +1,4 @@
+using TramSchedule.Data.DAL.Repositories;
 using TramSchedule.Data.Entities;
 
 namespace TramSchedule
@@ -19,12 +20,10 @@ namespace TramSchedule
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            tramBindingSource.DataSource = new List<Tram>() {
-                new Tram() { TramId = 1, Description = "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd", Name = "name", Number = 2 },
-                new Tram() { TramId = 2, Description = "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd", Name = "name1", Number = 23 }
-            };
             DataGridViewColumn column = dataGridViewTrams.Columns[3];
             column.Width = 400;
+            TramRepository repo = new TramRepository(new Data.Context.TramScheduleContext());
+            dataGridViewTrams.DataSource = repo.GetAll();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
