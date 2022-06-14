@@ -41,31 +41,31 @@
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tramBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPageTramLines = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tramStopBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPageTramStops = new System.Windows.Forms.TabPage();
             this.tramBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tramStopBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControlTrams.SuspendLayout();
             this.tabPageRoutes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTrams)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tramBindingSource)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.tabPageTramLines.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tramStopBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tramBindingSource1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tramStopBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // printPreviewDialog1
@@ -101,8 +101,8 @@
             // tabControlTrams
             // 
             this.tabControlTrams.Controls.Add(this.tabPageRoutes);
-            this.tabControlTrams.Controls.Add(this.tabPage2);
-            this.tabControlTrams.Controls.Add(this.tabPage3);
+            this.tabControlTrams.Controls.Add(this.tabPageTramLines);
+            this.tabControlTrams.Controls.Add(this.tabPageTramStops);
             this.tabControlTrams.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlTrams.Location = new System.Drawing.Point(0, 0);
             this.tabControlTrams.Multiline = true;
@@ -119,7 +119,7 @@
             this.tabPageRoutes.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageRoutes.Size = new System.Drawing.Size(1474, 836);
             this.tabPageRoutes.TabIndex = 0;
-            this.tabPageRoutes.Text = "Routes";
+            this.tabPageRoutes.Text = "Trams";
             this.tabPageRoutes.UseVisualStyleBackColor = true;
             // 
             // dataGridViewTrams
@@ -177,16 +177,16 @@
             // 
             this.tramBindingSource.DataSource = typeof(TramSchedule.Data.Entities.Tram);
             // 
-            // tabPage2
+            // tabPageTramLines
             // 
-            this.tabPage2.Controls.Add(this.splitContainer1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1474, 836);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPageTramLines.Controls.Add(this.splitContainer1);
+            this.tabPageTramLines.Location = new System.Drawing.Point(4, 24);
+            this.tabPageTramLines.Name = "tabPageTramLines";
+            this.tabPageTramLines.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTramLines.Size = new System.Drawing.Size(1474, 836);
+            this.tabPageTramLines.TabIndex = 1;
+            this.tabPageTramLines.Text = "Tram lines";
+            this.tabPageTramLines.UseVisualStyleBackColor = true;
             // 
             // splitContainer1
             // 
@@ -230,15 +230,19 @@
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged_1);
             // 
-            // tabPage3
+            // tramStopBindingSource
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1474, 836);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tramStopBindingSource.DataSource = typeof(TramSchedule.Data.Entities.TramStop);
+            // 
+            // tabPageTramStops
+            // 
+            this.tabPageTramStops.Location = new System.Drawing.Point(4, 24);
+            this.tabPageTramStops.Name = "tabPageTramStops";
+            this.tabPageTramStops.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTramStops.Size = new System.Drawing.Size(1474, 836);
+            this.tabPageTramStops.TabIndex = 2;
+            this.tabPageTramStops.Text = "Tram stops";
+            this.tabPageTramStops.UseVisualStyleBackColor = true;
             // 
             // tramBindingSource1
             // 
@@ -276,17 +280,14 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(104, 36);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Add Route";
+            this.button1.Text = "Add new tram";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // tramStopBindingSource
-            // 
-            this.tramStopBindingSource.DataSource = typeof(TramSchedule.Data.Entities.TramStop);
             // 
             // Form1
             // 
@@ -301,15 +302,15 @@
             this.tabPageRoutes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTrams)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tramBindingSource)).EndInit();
-            this.tabPage2.ResumeLayout(false);
+            this.tabPageTramLines.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tramStopBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tramBindingSource1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tramStopBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,8 +323,8 @@
         private Label label2;
         private TabControl tabControlTrams;
         private TabPage tabPageRoutes;
-        private TabPage tabPage2;
-        private TabPage tabPage3;
+        private TabPage tabPageTramLines;
+        private TabPage tabPageTramStops;
         private BindingSource tramBindingSource;
         private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
         private DataGridView dataGridViewTrams;

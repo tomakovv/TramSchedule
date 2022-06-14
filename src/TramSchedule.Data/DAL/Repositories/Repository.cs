@@ -6,7 +6,7 @@ namespace TramSchedule.Data.DAL.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        private readonly TramScheduleContext _context;
+        protected readonly TramScheduleContext _context;
 
         public Repository(TramScheduleContext context)
         {
