@@ -30,9 +30,9 @@
         {
             this.labelNewTramName = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.richTextBoxNewTramDescription = new System.Windows.Forms.RichTextBox();
+            this.textBoxNewTramNumber = new System.Windows.Forms.TextBox();
+            this.textBoxNewTramName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonSaveNewTram = new System.Windows.Forms.Button();
@@ -52,9 +52,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.buttonSaveNewTram);
-            this.groupBox1.Controls.Add(this.richTextBox1);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.richTextBoxNewTramDescription);
+            this.groupBox1.Controls.Add(this.textBoxNewTramNumber);
+            this.groupBox1.Controls.Add(this.textBoxNewTramName);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.labelNewTramName);
@@ -66,27 +66,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add new tram";
             // 
-            // richTextBox1
+            // richTextBoxNewTramDescription
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(124, 106);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(291, 96);
-            this.richTextBox1.TabIndex = 6;
-            this.richTextBox1.Text = "";
+            this.richTextBoxNewTramDescription.Location = new System.Drawing.Point(124, 106);
+            this.richTextBoxNewTramDescription.Name = "richTextBoxNewTramDescription";
+            this.richTextBoxNewTramDescription.Size = new System.Drawing.Size(291, 96);
+            this.richTextBoxNewTramDescription.TabIndex = 6;
+            this.richTextBoxNewTramDescription.Text = "";
             // 
-            // textBox2
+            // textBoxNewTramNumber
             // 
-            this.textBox2.Location = new System.Drawing.Point(101, 70);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(215, 23);
-            this.textBox2.TabIndex = 4;
+            this.textBoxNewTramNumber.Location = new System.Drawing.Point(101, 70);
+            this.textBoxNewTramNumber.Name = "textBoxNewTramNumber";
+            this.textBoxNewTramNumber.Size = new System.Drawing.Size(215, 23);
+            this.textBoxNewTramNumber.TabIndex = 4;
             // 
-            // textBox1
+            // textBoxNewTramName
             // 
-            this.textBox1.Location = new System.Drawing.Point(86, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(215, 23);
-            this.textBox1.TabIndex = 3;
+            this.textBoxNewTramName.Location = new System.Drawing.Point(86, 32);
+            this.textBoxNewTramName.Name = "textBoxNewTramName";
+            this.textBoxNewTramName.Size = new System.Drawing.Size(215, 23);
+            this.textBoxNewTramName.TabIndex = 3;
             // 
             // label2
             // 
@@ -116,6 +116,7 @@
             this.buttonSaveNewTram.TabIndex = 7;
             this.buttonSaveNewTram.Text = "Save";
             this.buttonSaveNewTram.UseVisualStyleBackColor = true;
+            this.buttonSaveNewTram.Click += new System.EventHandler(this.buttonSaveNewTram_Click);
             // 
             // Form2
             // 
@@ -136,9 +137,9 @@
 
         private Label labelNewTramName;
         private GroupBox groupBox1;
-        private RichTextBox richTextBox1;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private RichTextBox richTextBoxNewTramDescription;
+        private TextBox textBoxNewTramNumber;
+        private TextBox textBoxNewTramName;
         private Label label2;
         private Label label1;
         private Button buttonSaveNewTram;

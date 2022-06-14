@@ -18,5 +18,14 @@ namespace TramSchedule.Logic.ViewModels
         }
 
         public IEnumerable<Tram> GetAllTrams() => _tramRepository.GetAll();
+
+        public void AddNewTram(string number, string description, string name)
+        {
+            if (int.TryParse(number, out int validNumber))
+            {
+                _tramRepository.Add(new Tram() { Number = validNumber, Description = description, Name = name });
+                _tramRepository.Save();
+            }
+        }
     }
 }

@@ -4,6 +4,6 @@ namespace TramSchedule.Data.DAL.Interfaces
 {
     public interface ITramLineRepository : IRepository<TramLine>
     {
-        public void AddTramStop(TramStop tramStop);
+        public TramLine GetTramLineWithStops(int id);
     }
 }
