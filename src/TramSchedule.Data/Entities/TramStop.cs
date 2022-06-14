@@ -10,6 +10,6 @@
         public int TramStopId { get; set; }
         public int Number { get; set; }
         public string Description { get; set; }
-        public List<string> Comments { get; set; }
+        public List<TramStopComment> Comments { get; set; }
     }
 }

@@ -8,4 +8,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="microsoft.data.sqlclient" Version="2.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TramSchedule.Data\TramSchedule.Data.csproj" />
+    <ProjectReference Include="..\TramSchedule.Logic\TramSchedule.Logic.csproj" />
+  </ItemGroup>
+
 </Project>
