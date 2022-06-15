@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TramSchedule.Data.Context;
 
@@ -10,9 +11,10 @@ using TramSchedule.Data.Context;
 namespace TramSchedule.Data.Migrations
 {
     [DbContext(typeof(TramScheduleContext))]
-    partial class TramScheduleContextModelSnapshot : ModelSnapshot
+    [Migration("20220615122643_fourth")]
+    partial class fourth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -95,9 +97,6 @@ namespace TramSchedule.Data.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TramLineNumber")
-                        .HasColumnType("int");
 
                     b.HasKey("TramLineId");
 

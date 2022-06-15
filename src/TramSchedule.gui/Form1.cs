@@ -61,8 +61,13 @@ namespace TramSchedule
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedIndex = listBoxAllLines.SelectedIndex + 1;
-            listBoxLinesStops.DataSource = _tramLineViewModel.GetAllTramStops(selectedIndex).ToList();
+            if (listBoxAllLines.Items.Count > 0)
+            {
+                var selectedIndex = listBoxAllLines.SelectedIndex;
+                var line = (TramLine)listBoxAllLines.Items[selectedIndex];
+                listBoxLinesStops.DataSource = _tramLineViewModel.GetAllTramStops(line).ToList();
+                //listBoxTramStops.Items.Add(line);
+            }
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -75,7 +80,7 @@ namespace TramSchedule
 
         private void listBoxAllLines_Enter(object sender, EventArgs e)
         {
-            buttonAddStopToLine.Visible = true;
+            groupBoxLines.Visible = true;
         }
 
         private void listBoxAllLines_Leave(object sender, EventArgs e)
@@ -84,25 +89,64 @@ namespace TramSchedule
 
         private void tabControlTrams_SelectedIndexChanged(object sender, EventArgs e)
         {
-            buttonAddStopToLine.Visible = false;
-            buttonAddCommentToStop.Visible = false;
+            groupBoxLines.Visible = false;
+            groupBoxStops.Visible = false;
         }
 
         private void buttonAddStopToLine_Click(object sender, EventArgs e)
         {
             using (var frm = new FormAddStopToLine())
             {
+                frm.ListBoxAllLines = listBoxAllLines;
                 frm.ShowDialog();
             }
         }
 
         private void listBoxTramStops_SelectedIndexChanged(object sender, EventArgs e)
         {
+            listBoxTramStopComments.DataSource = _tramStopViewModel.GetAllStopComments((TramStop)listBoxTramStops.SelectedItem);
         }
 
         private void listBoxTramStops_Enter(object sender, EventArgs e)
         {
-            buttonAddCommentToStop.Visible = true;
+            groupBoxStops.Visible = true;
+        }
+
+        private void buttonDeleteLine_Click(object sender, EventArgs e)
+        {
+            _tramLineViewModel.DeleteLine((TramLine)listBoxAllLines.SelectedItem);
+            listBoxAllLines.DataSource = _tramLineViewModel.GetAllTramLines();
+        }
+
+        private void buttonAddNewLine_Click(object sender, EventArgs e)
+        {
+            using (var frm = new FormAddNewLine())
+            {
+                frm.ListBoxAllLines = listBoxAllLines;
+                frm.ShowDialog();
+            }
+        }
+
+        private void buttonDeleteStopFromLine_Click(object sender, EventArgs e)
+        {
+            var line = (TramLine)listBoxAllLines.SelectedItem;
+            var stop = (TramStop)listBoxLinesStops.SelectedItem;
+            _tramLineViewModel.DeleteTramLineStop(line, stop);
+        }
+
+        private void buttonAddComment_Click(object sender, EventArgs e)
+        {
+            using (var frm = new FormAddCommentToStop())
+            {
+                frm.ListBoxAllStops = listBoxTramStops;
+                frm.ListBoxAllStopComments = listBoxTramStopComments;
+                frm.ShowDialog();
+            }
+        }
+
+        private void buttonEditLine_Click(object sender, EventArgs e)
+        {
+          
         }
     }
 }

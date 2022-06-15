@@ -9,5 +9,10 @@ namespace TramSchedule.Data.Entities
 
         public string Description { get; set; }
         public TramStop TramStop { get; set; }
+
+        public override string ToString()
+        {
+            return Description;
+        }
     }
 }

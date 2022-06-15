@@ -44,20 +44,28 @@
             this.tabPageTramLines = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.listBoxAllLines = new System.Windows.Forms.ListBox();
+            this.tramBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.listBoxLinesStops = new System.Windows.Forms.ListBox();
             this.tramStopBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageTramStops = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.listBoxTramStops = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.tramBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.listBoxTramStopComments = new System.Windows.Forms.ListBox();
+            this.tramStopCommentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.buttonAddCommentToStop = new System.Windows.Forms.Button();
+            this.groupBoxStops = new System.Windows.Forms.GroupBox();
+            this.labelStops = new System.Windows.Forms.Label();
+            this.buttonAddComment = new System.Windows.Forms.Button();
+            this.groupBoxLines = new System.Windows.Forms.GroupBox();
+            this.buttonDeleteStopFromLine = new System.Windows.Forms.Button();
+            this.buttonDeleteLine = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.buttonAddNewLine = new System.Windows.Forms.Button();
             this.buttonAddStopToLine = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.buttonEditLine = new System.Windows.Forms.Button();
             this.tabControlTrams.SuspendLayout();
             this.tabPageRoutes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTrams)).BeginInit();
@@ -67,15 +75,18 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tramBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tramStopBindingSource)).BeginInit();
             this.tabPageTramStops.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tramBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tramStopCommentBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBoxStops.SuspendLayout();
+            this.groupBoxLines.SuspendLayout();
             this.SuspendLayout();
             // 
             // printPreviewDialog1
@@ -218,7 +229,9 @@
             // 
             // listBoxAllLines
             // 
-            this.listBoxAllLines.DataSource = this.tramBindingSource;
+            this.listBoxAllLines.BackColor = System.Drawing.Color.Ivory;
+            this.listBoxAllLines.DataSource = this.tramBindingSource1;
+            this.listBoxAllLines.DisplayMember = "Name";
             this.listBoxAllLines.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxAllLines.FormattingEnabled = true;
             this.listBoxAllLines.ItemHeight = 15;
@@ -230,8 +243,13 @@
             this.listBoxAllLines.Enter += new System.EventHandler(this.listBoxAllLines_Enter);
             this.listBoxAllLines.Leave += new System.EventHandler(this.listBoxAllLines_Leave);
             // 
+            // tramBindingSource1
+            // 
+            this.tramBindingSource1.DataSource = typeof(TramSchedule.Data.Entities.TramLine);
+            // 
             // listBoxLinesStops
             // 
+            this.listBoxLinesStops.BackColor = System.Drawing.Color.Ivory;
             this.listBoxLinesStops.DataSource = this.tramStopBindingSource;
             this.listBoxLinesStops.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxLinesStops.FormattingEnabled = true;
@@ -244,7 +262,7 @@
             // 
             // tramStopBindingSource
             // 
-            this.tramStopBindingSource.DataSource = typeof(TramSchedule.Data.Entities.TramStop);
+            this.tramStopBindingSource.DataSource = typeof(TramSchedule.Data.Entities.TramStopComment);
             // 
             // tabPageTramStops
             // 
@@ -269,36 +287,42 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.listBox2);
+            this.splitContainer2.Panel2.Controls.Add(this.listBoxTramStopComments);
             this.splitContainer2.Size = new System.Drawing.Size(1468, 830);
-            this.splitContainer2.SplitterDistance = 489;
+            this.splitContainer2.SplitterDistance = 580;
             this.splitContainer2.TabIndex = 0;
             // 
             // listBoxTramStops
             // 
+            this.listBoxTramStops.BackColor = System.Drawing.Color.Ivory;
+            this.listBoxTramStops.DataSource = this.tramStopBindingSource;
+            this.listBoxTramStops.DisplayMember = "Description";
             this.listBoxTramStops.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxTramStops.FormattingEnabled = true;
             this.listBoxTramStops.ItemHeight = 15;
             this.listBoxTramStops.Location = new System.Drawing.Point(0, 0);
             this.listBoxTramStops.Name = "listBoxTramStops";
-            this.listBoxTramStops.Size = new System.Drawing.Size(489, 830);
+            this.listBoxTramStops.Size = new System.Drawing.Size(580, 830);
             this.listBoxTramStops.TabIndex = 0;
             this.listBoxTramStops.SelectedIndexChanged += new System.EventHandler(this.listBoxTramStops_SelectedIndexChanged);
             this.listBoxTramStops.Enter += new System.EventHandler(this.listBoxTramStops_Enter);
             // 
-            // listBox2
+            // listBoxTramStopComments
             // 
-            this.listBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 15;
-            this.listBox2.Location = new System.Drawing.Point(0, 0);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(975, 830);
-            this.listBox2.TabIndex = 0;
+            this.listBoxTramStopComments.BackColor = System.Drawing.Color.Ivory;
+            this.listBoxTramStopComments.DataSource = this.tramStopCommentBindingSource;
+            this.listBoxTramStopComments.DisplayMember = "Description";
+            this.listBoxTramStopComments.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxTramStopComments.FormattingEnabled = true;
+            this.listBoxTramStopComments.ItemHeight = 15;
+            this.listBoxTramStopComments.Location = new System.Drawing.Point(0, 0);
+            this.listBoxTramStopComments.Name = "listBoxTramStopComments";
+            this.listBoxTramStopComments.Size = new System.Drawing.Size(884, 830);
+            this.listBoxTramStopComments.TabIndex = 0;
             // 
-            // tramBindingSource1
+            // tramStopCommentBindingSource
             // 
-            this.tramBindingSource1.DataSource = typeof(TramSchedule.Data.Entities.Tram);
+            this.tramStopCommentBindingSource.DataSource = typeof(TramSchedule.Data.Entities.TramStopComment);
             // 
             // sqlCommand1
             // 
@@ -318,53 +342,132 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.PowderBlue;
-            this.panel2.Controls.Add(this.buttonAddCommentToStop);
-            this.panel2.Controls.Add(this.buttonAddStopToLine);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.groupBoxStops);
+            this.panel2.Controls.Add(this.groupBoxLines);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(153, 941);
             this.panel2.TabIndex = 7;
             // 
-            // buttonAddCommentToStop
+            // groupBoxStops
             // 
-            this.buttonAddCommentToStop.BackColor = System.Drawing.Color.Ivory;
-            this.buttonAddCommentToStop.Location = new System.Drawing.Point(23, 162);
-            this.buttonAddCommentToStop.Name = "buttonAddCommentToStop";
-            this.buttonAddCommentToStop.Size = new System.Drawing.Size(104, 38);
-            this.buttonAddCommentToStop.TabIndex = 2;
-            this.buttonAddCommentToStop.Text = "Add comment to stop";
-            this.buttonAddCommentToStop.UseVisualStyleBackColor = false;
-            this.buttonAddCommentToStop.Visible = false;
+            this.groupBoxStops.Controls.Add(this.labelStops);
+            this.groupBoxStops.Controls.Add(this.buttonAddComment);
+            this.groupBoxStops.Location = new System.Drawing.Point(24, 432);
+            this.groupBoxStops.Name = "groupBoxStops";
+            this.groupBoxStops.Size = new System.Drawing.Size(104, 101);
+            this.groupBoxStops.TabIndex = 4;
+            this.groupBoxStops.TabStop = false;
+            this.groupBoxStops.Visible = false;
+            // 
+            // labelStops
+            // 
+            this.labelStops.AutoSize = true;
+            this.labelStops.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelStops.Location = new System.Drawing.Point(25, 18);
+            this.labelStops.Name = "labelStops";
+            this.labelStops.Size = new System.Drawing.Size(54, 19);
+            this.labelStops.TabIndex = 3;
+            this.labelStops.Text = "Stops";
+            this.labelStops.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // buttonAddComment
+            // 
+            this.buttonAddComment.BackColor = System.Drawing.Color.Ivory;
+            this.buttonAddComment.Location = new System.Drawing.Point(0, 50);
+            this.buttonAddComment.Name = "buttonAddComment";
+            this.buttonAddComment.Size = new System.Drawing.Size(104, 36);
+            this.buttonAddComment.TabIndex = 3;
+            this.buttonAddComment.Text = "Add comment";
+            this.buttonAddComment.UseVisualStyleBackColor = false;
+            this.buttonAddComment.Click += new System.EventHandler(this.buttonAddComment_Click);
+            // 
+            // groupBoxLines
+            // 
+            this.groupBoxLines.Controls.Add(this.buttonEditLine);
+            this.groupBoxLines.Controls.Add(this.buttonDeleteStopFromLine);
+            this.groupBoxLines.Controls.Add(this.buttonDeleteLine);
+            this.groupBoxLines.Controls.Add(this.label3);
+            this.groupBoxLines.Controls.Add(this.buttonAddNewLine);
+            this.groupBoxLines.Controls.Add(this.buttonAddStopToLine);
+            this.groupBoxLines.Location = new System.Drawing.Point(24, 104);
+            this.groupBoxLines.Name = "groupBoxLines";
+            this.groupBoxLines.Size = new System.Drawing.Size(104, 282);
+            this.groupBoxLines.TabIndex = 3;
+            this.groupBoxLines.TabStop = false;
+            this.groupBoxLines.Visible = false;
+            // 
+            // buttonDeleteStopFromLine
+            // 
+            this.buttonDeleteStopFromLine.BackColor = System.Drawing.Color.Ivory;
+            this.buttonDeleteStopFromLine.Location = new System.Drawing.Point(0, 92);
+            this.buttonDeleteStopFromLine.Name = "buttonDeleteStopFromLine";
+            this.buttonDeleteStopFromLine.Size = new System.Drawing.Size(104, 45);
+            this.buttonDeleteStopFromLine.TabIndex = 3;
+            this.buttonDeleteStopFromLine.Text = "Delete stop from line";
+            this.buttonDeleteStopFromLine.UseVisualStyleBackColor = false;
+            this.buttonDeleteStopFromLine.Click += new System.EventHandler(this.buttonDeleteStopFromLine_Click);
+            // 
+            // buttonDeleteLine
+            // 
+            this.buttonDeleteLine.BackColor = System.Drawing.Color.Ivory;
+            this.buttonDeleteLine.Location = new System.Drawing.Point(0, 231);
+            this.buttonDeleteLine.Name = "buttonDeleteLine";
+            this.buttonDeleteLine.Size = new System.Drawing.Size(104, 36);
+            this.buttonDeleteLine.TabIndex = 2;
+            this.buttonDeleteLine.Text = "Delete line";
+            this.buttonDeleteLine.UseVisualStyleBackColor = false;
+            this.buttonDeleteLine.Click += new System.EventHandler(this.buttonDeleteLine_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(25, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 19);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Lines";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // buttonAddNewLine
+            // 
+            this.buttonAddNewLine.BackColor = System.Drawing.Color.Ivory;
+            this.buttonAddNewLine.Location = new System.Drawing.Point(0, 143);
+            this.buttonAddNewLine.Name = "buttonAddNewLine";
+            this.buttonAddNewLine.Size = new System.Drawing.Size(104, 38);
+            this.buttonAddNewLine.TabIndex = 2;
+            this.buttonAddNewLine.Text = "Add new Line";
+            this.buttonAddNewLine.UseVisualStyleBackColor = false;
+            this.buttonAddNewLine.Click += new System.EventHandler(this.buttonAddNewLine_Click);
             // 
             // buttonAddStopToLine
             // 
             this.buttonAddStopToLine.BackColor = System.Drawing.Color.Ivory;
-            this.buttonAddStopToLine.Location = new System.Drawing.Point(23, 162);
+            this.buttonAddStopToLine.Location = new System.Drawing.Point(0, 50);
             this.buttonAddStopToLine.Name = "buttonAddStopToLine";
             this.buttonAddStopToLine.Size = new System.Drawing.Size(104, 36);
             this.buttonAddStopToLine.TabIndex = 1;
             this.buttonAddStopToLine.Text = "Add stop to line";
             this.buttonAddStopToLine.UseVisualStyleBackColor = false;
-            this.buttonAddStopToLine.Visible = false;
             this.buttonAddStopToLine.Click += new System.EventHandler(this.buttonAddStopToLine_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Ivory;
-            this.button1.Location = new System.Drawing.Point(23, 101);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 36);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Add new tram";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // buttonEditLine
+            // 
+            this.buttonEditLine.BackColor = System.Drawing.Color.Ivory;
+            this.buttonEditLine.Location = new System.Drawing.Point(0, 187);
+            this.buttonEditLine.Name = "buttonEditLine";
+            this.buttonEditLine.Size = new System.Drawing.Size(104, 38);
+            this.buttonEditLine.TabIndex = 4;
+            this.buttonEditLine.Text = "Edit line";
+            this.buttonEditLine.UseVisualStyleBackColor = false;
+            this.buttonEditLine.Click += new System.EventHandler(this.buttonEditLine_Click);
             // 
             // Form1
             // 
@@ -384,15 +487,20 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tramBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tramStopBindingSource)).EndInit();
             this.tabPageTramStops.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tramBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tramStopCommentBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.groupBoxStops.ResumeLayout(false);
+            this.groupBoxStops.PerformLayout();
+            this.groupBoxLines.ResumeLayout(false);
+            this.groupBoxLines.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -420,13 +528,21 @@
         private ContextMenuStrip contextMenuStrip1;
         private ListBox listBoxLinesStops;
         private ListBox listBoxAllLines;
-        private Button button1;
         private BindingSource tramBindingSource1;
         private BindingSource tramStopBindingSource;
         private Button buttonAddStopToLine;
         private SplitContainer splitContainer2;
         private ListBox listBoxTramStops;
-        private ListBox listBox2;
-        private Button buttonAddCommentToStop;
+        private ListBox listBoxTramStopComments;
+        private Button buttonAddNewLine;
+        private Button buttonAddComment;
+        private GroupBox groupBoxLines;
+        private Button buttonDeleteLine;
+        private Label label3;
+        private GroupBox groupBoxStops;
+        private Label labelStops;
+        private Button buttonDeleteStopFromLine;
+        private BindingSource tramStopCommentBindingSource;
+        private Button buttonEditLine;
     }
 }

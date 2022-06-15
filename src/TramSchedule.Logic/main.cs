@@ -10,13 +10,16 @@ internal class main
         TramLineRepository _tramLineRepo = new TramLineRepository(context);
         TramStopCommentsRepository _tramStopCommentsRepository = new(context);
         TramStopRepository tramStopRepository = new(context);
-        var stop = tramStopRepository.GetTramStopByNumber(103);
-        stop.Comments.Add(new TramStopComment() { Description = "jest ok", TramStop = stop });
-        tramStopRepository.Save();
-        // var tramLine = _tramLineRepo.Get(2);
-        //tramLine.Stops.Add(new TramStop() { Description = "dworzec", Number = 101 });
+        // var stop = tramStopRepository.GetTramStopByNumber(103);
+        // stop.Comments.Add(new TramStopComment() { Description = "jest ok", TramStop = stop });
+        // tramStopRepository.Save();
+        var tramLine = _tramLineRepo.Get(1);
+        //_tramLineRepo.Delete(tramLine);
+        tramLine.Stops.Add(new TramStop() { Description = "dworzec", Number = 121 });
+        _tramLineRepo.Save();
         // _tramStopCommentsRepository.Add(new TramStopComment() { Description = "nice stop" });
         // _tramStopCommentsRepository.Save();
-        //_tramLineRepo.Save();
+        // _tramLineRepo.Add(new TramLine() { Name = "kosciol" });
+        // _tramLineRepo.Save();
     }
 }

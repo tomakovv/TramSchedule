@@ -1,4 +1,5 @@
-﻿using TramSchedule.Data.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using TramSchedule.Data.Context;
 using TramSchedule.Data.DAL.Interfaces;
 using TramSchedule.Data.Entities;
 
@@ -10,6 +11,8 @@ namespace TramSchedule.Data.DAL.Repositories
         {
         }
 
-        public TramStop GetTramStopByNumber(int number) => _context.TramStops.Where(s => s.Number == number).FirstOrDefault();
+        public TramStop GetTramStopByNumber(int number) => _context.TramStops.AsNoTracking().Where(s => s.Number == number).FirstOrDefault();
+
+        public TramStop GetTramStopWithComments(TramStop stop) => _context.TramStops.Include(t => t.Comments).Where(t => t.TramStopId == stop.TramStopId).SingleOrDefault();
     }
 }

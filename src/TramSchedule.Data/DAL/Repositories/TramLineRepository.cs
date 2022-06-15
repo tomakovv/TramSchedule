@@ -11,9 +11,8 @@ namespace TramSchedule.Data.DAL.Repositories
         {
         }
 
-        public TramLine GetTramLineWithStops(int id)
-        {
-            return _context.TramLines.Include(t => t.Stops).Where(t => t.TramLineId == id).SingleOrDefault();
-        }
+        public bool CheckIfLineWithNumberExist(int number) => _context.TramLines.Any(t => t.TramLineNumber == number);
+
+        public TramLine GetTramLineWithStops(TramLine line) => _context.TramLines.Include(t => t.Stops).Where(t => t.TramLineId == line.TramLineId).SingleOrDefault();
     }
 }
