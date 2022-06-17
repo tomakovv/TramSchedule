@@ -55,17 +55,20 @@
             this.sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBoxTrams = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.buttonAddNewTram = new System.Windows.Forms.Button();
             this.groupBoxStops = new System.Windows.Forms.GroupBox();
             this.labelStops = new System.Windows.Forms.Label();
             this.buttonAddComment = new System.Windows.Forms.Button();
             this.groupBoxLines = new System.Windows.Forms.GroupBox();
+            this.buttonEditLine = new System.Windows.Forms.Button();
             this.buttonDeleteStopFromLine = new System.Windows.Forms.Button();
             this.buttonDeleteLine = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonAddNewLine = new System.Windows.Forms.Button();
             this.buttonAddStopToLine = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.buttonEditLine = new System.Windows.Forms.Button();
             this.tabControlTrams.SuspendLayout();
             this.tabPageRoutes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTrams)).BeginInit();
@@ -85,6 +88,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tramStopCommentBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBoxTrams.SuspendLayout();
             this.groupBoxStops.SuspendLayout();
             this.groupBoxLines.SuspendLayout();
             this.SuspendLayout();
@@ -342,6 +346,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.PowderBlue;
+            this.panel2.Controls.Add(this.groupBoxTrams);
             this.panel2.Controls.Add(this.groupBoxStops);
             this.panel2.Controls.Add(this.groupBoxLines);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -349,6 +354,39 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(153, 941);
             this.panel2.TabIndex = 7;
+            // 
+            // groupBoxTrams
+            // 
+            this.groupBoxTrams.Controls.Add(this.label4);
+            this.groupBoxTrams.Controls.Add(this.buttonAddNewTram);
+            this.groupBoxTrams.Location = new System.Drawing.Point(24, 661);
+            this.groupBoxTrams.Name = "groupBoxTrams";
+            this.groupBoxTrams.Size = new System.Drawing.Size(104, 101);
+            this.groupBoxTrams.TabIndex = 5;
+            this.groupBoxTrams.TabStop = false;
+            this.groupBoxTrams.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(22, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 19);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Trams";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // buttonAddNewTram
+            // 
+            this.buttonAddNewTram.BackColor = System.Drawing.Color.Ivory;
+            this.buttonAddNewTram.Location = new System.Drawing.Point(6, 50);
+            this.buttonAddNewTram.Name = "buttonAddNewTram";
+            this.buttonAddNewTram.Size = new System.Drawing.Size(104, 36);
+            this.buttonAddNewTram.TabIndex = 5;
+            this.buttonAddNewTram.Text = "Add new Tram";
+            this.buttonAddNewTram.UseVisualStyleBackColor = false;
+            this.buttonAddNewTram.Click += new System.EventHandler(this.buttonAddNewTram_Click);
             // 
             // groupBoxStops
             // 
@@ -397,6 +435,17 @@
             this.groupBoxLines.TabIndex = 3;
             this.groupBoxLines.TabStop = false;
             this.groupBoxLines.Visible = false;
+            // 
+            // buttonEditLine
+            // 
+            this.buttonEditLine.BackColor = System.Drawing.Color.Ivory;
+            this.buttonEditLine.Location = new System.Drawing.Point(0, 187);
+            this.buttonEditLine.Name = "buttonEditLine";
+            this.buttonEditLine.Size = new System.Drawing.Size(104, 38);
+            this.buttonEditLine.TabIndex = 4;
+            this.buttonEditLine.Text = "Edit line";
+            this.buttonEditLine.UseVisualStyleBackColor = false;
+            this.buttonEditLine.Click += new System.EventHandler(this.buttonEditLine_Click);
             // 
             // buttonDeleteStopFromLine
             // 
@@ -458,17 +507,6 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // buttonEditLine
-            // 
-            this.buttonEditLine.BackColor = System.Drawing.Color.Ivory;
-            this.buttonEditLine.Location = new System.Drawing.Point(0, 187);
-            this.buttonEditLine.Name = "buttonEditLine";
-            this.buttonEditLine.Size = new System.Drawing.Size(104, 38);
-            this.buttonEditLine.TabIndex = 4;
-            this.buttonEditLine.Text = "Edit line";
-            this.buttonEditLine.UseVisualStyleBackColor = false;
-            this.buttonEditLine.Click += new System.EventHandler(this.buttonEditLine_Click);
-            // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.Azure;
@@ -497,6 +535,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tramStopCommentBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.groupBoxTrams.ResumeLayout(false);
+            this.groupBoxTrams.PerformLayout();
             this.groupBoxStops.ResumeLayout(false);
             this.groupBoxStops.PerformLayout();
             this.groupBoxLines.ResumeLayout(false);
@@ -544,5 +584,8 @@
         private Button buttonDeleteStopFromLine;
         private BindingSource tramStopCommentBindingSource;
         private Button buttonEditLine;
+        private GroupBox groupBoxTrams;
+        private Label label4;
+        private Button buttonAddNewTram;
     }
 }

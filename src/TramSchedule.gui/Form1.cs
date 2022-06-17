@@ -53,6 +53,7 @@ namespace TramSchedule
 
         private void dataGridViewTrams_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
+            groupBoxTrams.Visible = true;
         }
 
         private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -63,10 +64,8 @@ namespace TramSchedule
         {
             if (listBoxAllLines.Items.Count > 0)
             {
-                var selectedIndex = listBoxAllLines.SelectedIndex;
-                var line = (TramLine)listBoxAllLines.Items[selectedIndex];
+                var line = (TramLine)listBoxAllLines.SelectedItem;
                 listBoxLinesStops.DataSource = _tramLineViewModel.GetAllTramStops(line).ToList();
-                //listBoxTramStops.Items.Add(line);
             }
         }
 
@@ -91,6 +90,7 @@ namespace TramSchedule
         {
             groupBoxLines.Visible = false;
             groupBoxStops.Visible = false;
+            groupBoxTrams.Visible = false;
         }
 
         private void buttonAddStopToLine_Click(object sender, EventArgs e)
@@ -146,7 +146,14 @@ namespace TramSchedule
 
         private void buttonEditLine_Click(object sender, EventArgs e)
         {
-          
+        }
+
+        private void buttonAddNewTram_Click(object sender, EventArgs e)
+        {
+            using (var frm = new Form2())
+            {
+                frm.ShowDialog();
+            }
         }
     }
 }

@@ -72,10 +72,10 @@
             // labelNewLineNumber
             // 
             this.labelNewLineNumber.AutoSize = true;
-            this.labelNewLineNumber.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelNewLineNumber.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelNewLineNumber.Location = new System.Drawing.Point(12, 60);
             this.labelNewLineNumber.Name = "labelNewLineNumber";
-            this.labelNewLineNumber.Size = new System.Drawing.Size(139, 18);
+            this.labelNewLineNumber.Size = new System.Drawing.Size(121, 18);
             this.labelNewLineNumber.TabIndex = 2;
             this.labelNewLineNumber.Text = "New line number:";
             // 
@@ -89,10 +89,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(12, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 18);
+            this.label1.Size = new System.Drawing.Size(108, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "New line name:";
             // 

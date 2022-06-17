@@ -1,5 +1,6 @@
 namespace TramSchedule.Tests
 {
+    [TestFixture]
     public class Tests
     {
         [SetUp]
