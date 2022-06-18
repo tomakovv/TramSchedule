@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TramSchedule.Data.Context;
 
@@ -11,9 +12,10 @@ using TramSchedule.Data.Context;
 namespace TramSchedule.Data.Migrations
 {
     [DbContext(typeof(TramScheduleContext))]
-    partial class TramScheduleContextModelSnapshot : ModelSnapshot
+    [Migration("20220617184217_sixth")]
+    partial class sixth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,8 +47,8 @@ namespace TramSchedule.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DepartureTimeId"), 1L, 1);
 
-                    b.Property<TimeSpan>("Time")
-                        .HasColumnType("time");
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("TramDeparturesTramDepartureID")
                         .HasColumnType("int");
@@ -216,13 +218,13 @@ namespace TramSchedule.Data.Migrations
             modelBuilder.Entity("TramSchedule.Data.Entities.TramDepartures", b =>
                 {
                     b.HasOne("TramSchedule.Data.Entities.TramStop", "Stop")
-                        .WithMany("Departures")
+                        .WithMany()
                         .HasForeignKey("StopTramStopId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("TramSchedule.Data.Entities.Tram", "Tram")
-                        .WithMany("Departures")
+                        .WithMany()
                         .HasForeignKey("TramId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -243,11 +245,6 @@ namespace TramSchedule.Data.Migrations
                     b.Navigation("TramStop");
                 });
 
-            modelBuilder.Entity("TramSchedule.Data.Entities.Tram", b =>
-                {
-                    b.Navigation("Departures");
-                });
-
             modelBuilder.Entity("TramSchedule.Data.Entities.TramDepartures", b =>
                 {
                     b.Navigation("DepartureTimes");
@@ -256,8 +253,6 @@ namespace TramSchedule.Data.Migrations
             modelBuilder.Entity("TramSchedule.Data.Entities.TramStop", b =>
                 {
                     b.Navigation("Comments");
-
-                    b.Navigation("Departures");
                 });
 #pragma warning restore 612, 618
         }

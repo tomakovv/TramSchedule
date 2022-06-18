@@ -52,6 +52,11 @@
             this.listBoxTramStops = new System.Windows.Forms.ListBox();
             this.listBoxTramStopComments = new System.Windows.Forms.ListBox();
             this.tramStopCommentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.listBoxStops = new System.Windows.Forms.ListBox();
+            this.listBoxDepartureTimes = new System.Windows.Forms.ListBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -86,6 +91,11 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tramStopCommentBindingSource)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBoxTrams.SuspendLayout();
@@ -128,6 +138,7 @@
             this.tabControlTrams.Controls.Add(this.tabPageRoutes);
             this.tabControlTrams.Controls.Add(this.tabPageTramLines);
             this.tabControlTrams.Controls.Add(this.tabPageTramStops);
+            this.tabControlTrams.Controls.Add(this.tabPage1);
             this.tabControlTrams.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlTrams.Location = new System.Drawing.Point(0, 0);
             this.tabControlTrams.Multiline = true;
@@ -327,6 +338,68 @@
             // tramStopCommentBindingSource
             // 
             this.tramStopCommentBindingSource.DataSource = typeof(TramSchedule.Data.Entities.TramStopComment);
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.splitContainer3);
+            this.tabPage1.Controls.Add(this.listBox1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1474, 836);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "Departures";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer3.Name = "splitContainer3";
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.listBoxStops);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.listBoxDepartureTimes);
+            this.splitContainer3.Size = new System.Drawing.Size(1468, 830);
+            this.splitContainer3.SplitterDistance = 489;
+            this.splitContainer3.TabIndex = 1;
+            // 
+            // listBoxStops
+            // 
+            this.listBoxStops.DataSource = this.tramStopBindingSource;
+            this.listBoxStops.DisplayMember = "Description";
+            this.listBoxStops.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxStops.FormattingEnabled = true;
+            this.listBoxStops.ItemHeight = 15;
+            this.listBoxStops.Location = new System.Drawing.Point(0, 0);
+            this.listBoxStops.Name = "listBoxStops";
+            this.listBoxStops.Size = new System.Drawing.Size(489, 830);
+            this.listBoxStops.TabIndex = 0;
+            this.listBoxStops.SelectedIndexChanged += new System.EventHandler(this.listBoxStops_SelectedIndexChanged);
+            // 
+            // listBoxDepartureTimes
+            // 
+            this.listBoxDepartureTimes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxDepartureTimes.FormattingEnabled = true;
+            this.listBoxDepartureTimes.ItemHeight = 15;
+            this.listBoxDepartureTimes.Location = new System.Drawing.Point(0, 0);
+            this.listBoxDepartureTimes.Name = "listBoxDepartureTimes";
+            this.listBoxDepartureTimes.Size = new System.Drawing.Size(975, 830);
+            this.listBoxDepartureTimes.TabIndex = 0;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(60, 176);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(121, 109);
+            this.listBox1.TabIndex = 0;
             // 
             // sqlCommand1
             // 
@@ -533,6 +606,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tramStopCommentBindingSource)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.groupBoxTrams.ResumeLayout(false);
@@ -558,10 +636,6 @@
         private BindingSource tramBindingSource;
         private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
         private DataGridView dataGridViewTrams;
-        private DataGridViewTextBoxColumn tramIdDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private Panel panel1;
         private Panel panel2;
         private SplitContainer splitContainer1;
@@ -587,5 +661,14 @@
         private GroupBox groupBoxTrams;
         private Label label4;
         private Button buttonAddNewTram;
+        private TabPage tabPage1;
+        private SplitContainer splitContainer3;
+        private ListBox listBox1;
+        private DataGridViewTextBoxColumn tramIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private ListBox listBoxStops;
+        private ListBox listBoxDepartureTimes;
     }
 }

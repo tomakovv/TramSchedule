@@ -9,6 +9,8 @@ namespace TramSchedule.Data.Context
         public DbSet<TramLine> TramLines { get; set; }
         public DbSet<TramStop> TramStops { get; set; }
         public DbSet<TramStopComment> TramStopsComments { get; set; }
+        public DbSet<TramDepartures> TramDepartures { get; set; }
+        public DbSet<DepartureTime> DepartureTimes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

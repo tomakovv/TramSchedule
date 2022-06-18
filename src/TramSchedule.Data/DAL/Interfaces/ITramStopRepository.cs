@@ -7,5 +7,6 @@ namespace TramSchedule.Data.DAL.Interfaces
         public TramStop GetTramStopByNumber(int id);
 
         public TramStop GetTramStopWithComments(TramStop stop);
+        TramStop GetTramStopWithDepartures(TramStop stop);
     }
 }

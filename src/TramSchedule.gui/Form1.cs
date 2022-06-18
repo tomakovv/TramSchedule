@@ -37,6 +37,7 @@ namespace TramSchedule
             dataGridViewTrams.DataSource = _tramViewModel.GetAllTrams();
             listBoxAllLines.DataSource = _tramLineViewModel.GetAllTramLines();
             listBoxTramStops.DataSource = _tramStopViewModel.GetAllTramStops();
+            listBoxStops.DataSource = _tramStopViewModel.GetAllTramStops();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -153,6 +154,20 @@ namespace TramSchedule
             using (var frm = new Form2())
             {
                 frm.ShowDialog();
+            }
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void listBoxStops_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var stop = (TramStop)listBoxStops.SelectedItem;
+            if (stop != null)
+            {
+                var upcomingDepartures = _tramStopViewModel.GetUpcomingDepartures(stop).ToList();
+                listBoxDepartureTimes.DataSource = upcomingDepartures;
             }
         }
     }

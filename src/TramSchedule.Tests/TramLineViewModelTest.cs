@@ -17,8 +17,6 @@ namespace TramSchedule.Tests
                 .Returns(new TramStop());
 
             var sut = new TramLineViewModel(TramLineRepositoryMock, TramStopRepositoryMock);
-
-            Assert.That(true);
         }
     }
 }

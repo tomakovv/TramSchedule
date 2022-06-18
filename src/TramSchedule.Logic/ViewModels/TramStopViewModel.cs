@@ -29,5 +29,18 @@ namespace TramSchedule.Logic.ViewModels
             stop = _tramStopRepository.GetTramStopWithComments(stop);
             return stop.Comments;
         }
+
+        public IEnumerable<string> GetUpcomingDepartures(TramStop tramStop)
+        {
+            List<string> upcomingDepartures = new List<string>();
+            tramStop = _tramStopRepository.GetTramStopWithDepartures(tramStop);
+            string closestDeparture;
+            foreach (var departure in tramStop.Departures)
+            {
+                var departureTime = departure.DepartureTimes.First();
+                upcomingDepartures.Add($"{departure.Tram.Number} {departure.Tram.Name} {departureTime.Time}");
+            }
+            return upcomingDepartures;
+        }
     }
 }

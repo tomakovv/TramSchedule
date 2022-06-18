@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TramSchedule.Data.DAL.Interfaces;
+﻿using TramSchedule.Data.DAL.Interfaces;
 using TramSchedule.Data.Entities;
 
 namespace TramSchedule.Logic.ViewModels
@@ -26,6 +21,20 @@ namespace TramSchedule.Logic.ViewModels
                 _tramRepository.Add(new Tram() { Number = validNumber, Description = description, Name = name });
                 _tramRepository.Save();
             }
+        }
+
+        public void AddDeparture(Tram tram, TramStop tramStop, TimeSpan time)
+        {
+            tram = _tramRepository.GetTramWithDepartures(tram);
+            var departure = tram.Departures.Where(d => d.Stop.TramStopId == tramStop.TramStopId).FirstOrDefault();
+            if (departure == null)
+            {
+                tram.Departures.Add(new TramDepartures(new DepartureTime() { Time = time }) { Stop = tramStop });
+                _tramRepository.Save();
+                return;
+            }
+            departure.DepartureTimes.Add(new DepartureTime() { Time = time });
+            _tramRepository.Save();
         }
     }
 }
