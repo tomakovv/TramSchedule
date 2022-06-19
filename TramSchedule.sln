@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TramSchedule", "src\TramSchedule.gui\TramSchedule.csproj", "{600FF333-CEF5-41EB-9C45-07E401BEFC81}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TramSchedule.Data", "src\TramSchedule.Data\TramSchedule.Data.csproj", "{3EA5B67C-6317-4D16-845B-8CE1511800EA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TramSchedule.Tests", "src\TramSchedule.Tests\TramSchedule.Tests.csproj", "{D132FC42-4DDF-4176-AEB8-108AC5E51FBA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TramSchedule.Logic", "src\TramSchedule.Logic\TramSchedule.Logic.csproj", "{71B441FB-7F55-4B26-BAD8-4E51EA6D4684}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{600FF333-CEF5-41EB-9C45-07E401BEFC81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{600FF333-CEF5-41EB-9C45-07E401BEFC81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{600FF333-CEF5-41EB-9C45-07E401BEFC81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{600FF333-CEF5-41EB-9C45-07E401BEFC81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EA5B67C-6317-4D16-845B-8CE1511800EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EA5B67C-6317-4D16-845B-8CE1511800EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EA5B67C-6317-4D16-845B-8CE1511800EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EA5B67C-6317-4D16-845B-8CE1511800EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D132FC42-4DDF-4176-AEB8-108AC5E51FBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D132FC42-4DDF-4176-AEB8-108AC5E51FBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D132FC42-4DDF-4176-AEB8-108AC5E51FBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D132FC42-4DDF-4176-AEB8-108AC5E51FBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71B441FB-7F55-4B26-BAD8-4E51EA6D4684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71B441FB-7F55-4B26-BAD8-4E51EA6D4684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71B441FB-7F55-4B26-BAD8-4E51EA6D4684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71B441FB-7F55-4B26-BAD8-4E51EA6D4684}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC883012-26B3-440A-8780-174864954108}
+	EndGlobalSection
+EndGlobal
