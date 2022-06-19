@@ -26,7 +26,7 @@ namespace TramSchedule.Logic.ViewModels
         public void AddDeparture(Tram tram, TramStop tramStop, TimeSpan time)
         {
             tram = _tramRepository.GetTramWithDepartures(tram);
-            var departure = tram.Departures.Where(d => d.Stop.TramStopId == tramStop.TramStopId).FirstOrDefault();
+            var departure = tram.Departures.Where(d => d.Stop.TramStopId == tramStop.TramStopId && d.Tram.TramId == tram.TramId).FirstOrDefault();
             if (departure == null)
             {
                 tram.Departures.Add(new TramDepartures(new DepartureTime() { Time = time }) { Stop = tramStop });
