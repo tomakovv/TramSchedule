@@ -8,12 +8,11 @@ namespace TramSchedule
     {
         public ListBox ListBoxAllLines { get; set; }
         private readonly TramLineViewModel _tramLineViewModel;
-        private readonly TramScheduleContext _context = new();
 
-        public FormAddNewLine()
+        public FormAddNewLine(TramLineViewModel tramLineViewModel)
         {
             InitializeComponent();
-            _tramLineViewModel = new TramLineViewModel(new TramLineRepository(_context), new TramStopRepository(_context));
+            _tramLineViewModel = tramLineViewModel;
         }
 
         private void buttonSaveNewLine_Click(object sender, EventArgs e)

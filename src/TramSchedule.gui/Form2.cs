@@ -8,10 +8,10 @@ namespace TramSchedule
     {
         private TramViewModel _tramViewModel;
 
-        public Form2()
+        public Form2(TramViewModel tramViewModel)
         {
             InitializeComponent();
-            _tramViewModel = new TramViewModel(new TramRepository(new TramScheduleContext()));
+            _tramViewModel = tramViewModel;
         }
 
         private void buttonSaveNewTram_Click(object sender, EventArgs e)

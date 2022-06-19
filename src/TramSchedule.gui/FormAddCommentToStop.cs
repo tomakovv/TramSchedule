@@ -10,12 +10,11 @@ namespace TramSchedule
         public ListBox ListBoxAllStops { get; set; }
         public ListBox ListBoxAllStopComments { get; set; }
         private readonly TramStopViewModel _tramStopViewModel;
-        private readonly TramScheduleContext _context = new();
 
-        public FormAddCommentToStop()
+        public FormAddCommentToStop(TramStopViewModel tramStopViewModel)
         {
             InitializeComponent();
-            _tramStopViewModel = new(new TramStopRepository(_context));
+            _tramStopViewModel = tramStopViewModel;
         }
 
         private void buttonSaveComment_Click(object sender, EventArgs e)

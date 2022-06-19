@@ -9,17 +9,23 @@ namespace TramSchedule
     {
         private readonly TramViewModel _tramViewModel;
         private readonly TramLineViewModel _tramLineViewModel;
-        private readonly TramStopCommentViewModel _tramStopCommentViewModel;
         private readonly TramStopViewModel _tramStopViewModel;
-        private TramScheduleContext _context = new();
+        private readonly Form2 _AddNewTramForm;
+        private readonly FormAddCommentToStop _formAddCommentToStop;
+        private readonly FormAddNewLine _formAddNewLine;
+        private readonly FormAddStopToLine _formAddStopToLine;
 
-        public Form1()
+        public Form1(TramViewModel tramViewModel, TramLineViewModel tramLineViewModel, TramStopViewModel tramStopViewModel, Form2 form2,
+            FormAddCommentToStop formAddCommentToStop, FormAddNewLine formAddNewLine, FormAddStopToLine formAddStopToLine)
         {
             InitializeComponent();
-            _tramViewModel = new TramViewModel(new TramRepository(_context));
-            _tramLineViewModel = new TramLineViewModel(new TramLineRepository(_context), new TramStopRepository(_context));
-            _tramStopViewModel = new TramStopViewModel(new TramStopRepository(_context));
-            _tramStopCommentViewModel = new TramStopCommentViewModel(new TramStopCommentsRepository(_context));
+            _tramViewModel = tramViewModel;
+            _tramLineViewModel = tramLineViewModel;
+            _tramStopViewModel = tramStopViewModel;
+            _AddNewTramForm = form2;
+            _formAddCommentToStop = formAddCommentToStop;
+            _formAddNewLine = formAddNewLine;
+            _formAddStopToLine = formAddStopToLine;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -70,14 +76,6 @@ namespace TramSchedule
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            using (var frm = new Form2())
-            {
-                frm.ShowDialog();
-            }
-        }
-
         private void listBoxAllLines_Enter(object sender, EventArgs e)
         {
             groupBoxLines.Visible = true;
@@ -96,11 +94,8 @@ namespace TramSchedule
 
         private void buttonAddStopToLine_Click(object sender, EventArgs e)
         {
-            using (var frm = new FormAddStopToLine())
-            {
-                frm.ListBoxAllLines = listBoxAllLines;
-                frm.ShowDialog();
-            }
+            _formAddStopToLine.ListBoxAllLines = listBoxAllLines;
+            _formAddStopToLine.ShowDialog();
         }
 
         private void listBoxTramStops_SelectedIndexChanged(object sender, EventArgs e)
@@ -121,11 +116,8 @@ namespace TramSchedule
 
         private void buttonAddNewLine_Click(object sender, EventArgs e)
         {
-            using (var frm = new FormAddNewLine())
-            {
-                frm.ListBoxAllLines = listBoxAllLines;
-                frm.ShowDialog();
-            }
+            _formAddNewLine.ListBoxAllLines = listBoxAllLines;
+            _formAddNewLine.ShowDialog();
         }
 
         private void buttonDeleteStopFromLine_Click(object sender, EventArgs e)
@@ -137,12 +129,9 @@ namespace TramSchedule
 
         private void buttonAddComment_Click(object sender, EventArgs e)
         {
-            using (var frm = new FormAddCommentToStop())
-            {
-                frm.ListBoxAllStops = listBoxTramStops;
-                frm.ListBoxAllStopComments = listBoxTramStopComments;
-                frm.ShowDialog();
-            }
+            _formAddCommentToStop.ListBoxAllStops = listBoxTramStops;
+            _formAddCommentToStop.ListBoxAllStopComments = listBoxTramStopComments;
+            _formAddCommentToStop.ShowDialog();
         }
 
         private void buttonEditLine_Click(object sender, EventArgs e)
@@ -151,10 +140,7 @@ namespace TramSchedule
 
         private void buttonAddNewTram_Click(object sender, EventArgs e)
         {
-            using (var frm = new Form2())
-            {
-                frm.ShowDialog();
-            }
+            _AddNewTramForm.ShowDialog();
         }
 
         private void tabPage1_Click(object sender, EventArgs e)

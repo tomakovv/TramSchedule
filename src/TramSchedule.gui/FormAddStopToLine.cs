@@ -8,13 +8,12 @@ namespace TramSchedule
     public partial class FormAddStopToLine : Form
     {
         private readonly TramLineViewModel _tramLineViewModel;
-        private readonly TramScheduleContext _context = new();
         public ListBox ListBoxAllLines { get; set; }
 
-        public FormAddStopToLine()
+        public FormAddStopToLine(TramLineViewModel tramLineViewModel)
         {
             InitializeComponent();
-            _tramLineViewModel = new TramLineViewModel(new TramLineRepository(_context), new TramStopRepository(_context));
+            _tramLineViewModel = tramLineViewModel;
         }
 
         private void buttonAddStopToLineSave_Click(object sender, EventArgs e)
